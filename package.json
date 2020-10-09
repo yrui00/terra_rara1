@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/yrui00/terra_rara1/issues"
   },
-  "homepage": "http://www.yurisalinas.xyz/terra_rara",
+  "homepage": "http://localhost:3000",
   "dependencies": {
     "express": "^4.17.1"
   }
