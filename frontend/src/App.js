@@ -93,10 +93,9 @@ function App() {
             <div className="contImg"><img key={img} src={img} alt=""  /></div>
             <div className="names" >
              
-              { 
-              nameImg = img.split('/').map((i) => 
+              {  //nameImg = img.split('/').map((i) => 
               <span>i</span>
-              ) }
+               }
               
               <input type="text" value={img} readOnly="readOnly" />
             </div>
