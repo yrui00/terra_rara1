@@ -5,21 +5,26 @@ const app = express();
 
 const local = true;
 if(!local){
+  
   app.use(express.static(path.join('frontend', 'build')));
 
   app.get('/', function(req, res) {
     res.sendFile(path.join('terra_rara1', 'build', 'index.html'));
-    
   });
+  app.listen(process.env.PORT_TERRA_RARA1_APP);
+
 } else {
   
-  const indexRoute = require('./routes/listimages');
+  app.use(express.static(path.join('frontend', 'build')));
 
-  app.use('/listimages', indexRoute);
+  app.get('/', function(req, res) {
+    res.sendFile(path.join('frontend', 'build', 'index.html'));
+    
+  });
+  app.listen(3000);
   
 }
 
-app.listen(3000);
 
 module.exports = app;
 
