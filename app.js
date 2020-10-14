@@ -1,30 +1,24 @@
-var http = require('http');
+/*var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('App Node funcionando!\n');
+}).listen(process.env.PORT_APP);
+console.log('Server running at :'+process.env.PORT_APP);*/
+//process.env.PORT_APP = 3000;
 const express = require('express');
 const path = require('path');
 const app = express();
+const imageList = require('./backend/data_imagens.js');
 
-const local = true;
-if(!local){
-  
-  app.use(express.static(path.join('frontend', 'build')));
-
-  app.get('/', function(req, res) {
-    res.sendFile(path.join('terra_rara1', 'build', 'index.html'));
-  });
-  app.listen(process.env.PORT_TERRA_RARA1_APP);
-
-} else {
-  
-  app.use(express.static(path.join('frontend', 'build')));
-
-  app.get('/', function(req, res) {
-    res.sendFile(path.join('frontend', 'build', 'index.html'));
-    
-  });
-  app.listen(3000);
-  
-}
+app.get('/api/jsonimgs', (req, res) => {
+  res.send(imageList);
+})
 
 
+app.get('/', (req, res) => {
+  //res.sendFile(path.join(`${__dirname}/frontend/build/index.html`));
+  res.end('HELLO')
+});
+
+app.listen(process.env.PORT_APP);
 module.exports = app;
-

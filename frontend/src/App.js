@@ -47,7 +47,7 @@ const searchImage = (str) => {
         var tx = '';
         for(var i =0; i< arTxt.length; i++){
           tx += arTxt[i];
-          if( i != arTxt.length-1 ) {
+          if( i !== arTxt.length-1 ) {
             tx += '<span class="mark">'+str+'</span>';
           }
         }
@@ -69,7 +69,6 @@ const searchImage = (str) => {
 
 function App() {
 
-  const nameImg = '';
   
   return (
     <div className="App">
@@ -95,7 +94,7 @@ function App() {
             <div className="contImg"><img key={img} src={img} alt=""  /></div>
             <div className="names" >
              
-              {  //nameImg = img.split('/').map((i) => 
+              {  
               <span>i</span>
                }
               
