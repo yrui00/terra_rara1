@@ -70,13 +70,13 @@ const searchImage = (str) => {
 }
 
 
-function App() {
+function App(props) {
   
   const [arImages , setImage] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       const {data} = await axios.get("/api/jsonimgs");
-      setImage(data);
+      setImage(data.images);
     }
     fetchData();
   }, [])
@@ -102,14 +102,10 @@ function App() {
         {arImages.map((img) => 
           <div key={img.url} className="img"  >
             <div className="numId">{ frmNum(1) }</div>
-            <div className="contImg"><img key={img.url} src={img.url} alt=""  /></div>
+            <div className="contImg"><img key={img.url} src= {"/images/"+img.url} alt=""  /></div>
             <div className="names" >
-             
-              {  
-              <span>i</span>
-               }
-              
-              <input type="text" value={img} readOnly="readOnly" />
+              <span>{img.url.split('.jp')[0]}</span>
+              <input type="text" value={"https://www.yurisalinas.xyz/images/"+img.url} readOnly="readOnly" />
             </div>
             <div className="btCopy" onClick={(e) => copyText(e.target)} ></div>
             <div className="btShow" onClick={() => openImg(img)} ></div>

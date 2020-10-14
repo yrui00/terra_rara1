@@ -29,7 +29,7 @@ strong {margin: 0 5px;}
 .topo .contPesquisa input {width: 225px; height: 38px; border-radius: 3px; background-color: #d3dada; box-sizing: border-box; padding: 0 5px; display: inline-block; vertical-align: middle;}
 .topo .contPesquisa .btPesquisar {display: inline-block; width: 38px; height: 37px; cursor: pointer; background-image: url('./images/bt_pesquisar1.png'); vertical-align: middle; margin:-2px 0 0 -38px;}
 
-.contentImgs { display: grid; margin-top: 30px; color: #415958;}
+.contentImgs { display: grid; margin: 30px 5%; color: #415958;}
 .contentImgs .topSearch{max-width: 1100px; padding: 0 50px; border-bottom: 1px solid #d3dada; display: table; width: 100%; margin: 0 auto 10px; display: none;}
 .contentImgs .topSearch span{font-weight: bold; font-style: italic;}
 .contentImgs .numResults{float: left;}
@@ -54,3 +54,9 @@ strong {margin: 0 5px;}
 
 
 .mark {background-color: #ff0;}
+
+@media (max-width: 700px){
+  .contentImgs .img .names {text-align: center;}
+  .contentImgs .img .names span{display:block; }
+  .contentImgs .img .names input{float: none;}
+}
