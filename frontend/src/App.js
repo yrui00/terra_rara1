@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import $ from 'jquery';
+import axios from 'axios';
+
+
 
 const importAll = (r) => {
   return r.keys().map(r);
@@ -68,8 +71,16 @@ const searchImage = (str) => {
 
 
 function App() {
-
   
+  const [arImages , setImage] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const {data} = await axios.get("/api/jsonimgs");
+      setImage(data);
+    }
+    fetchData();
+  }, [])
+
   return (
     <div className="App">
       
@@ -88,10 +99,10 @@ function App() {
           <div className="numResults">Resultados: <span className="num"></span></div>
           <div className="txtResults">Pesquisando por: <span className="txt">ziper</span></div>
         </div>
-        {images.map((img,ind) => 
-          <div key={img} className="img"  >
-            <div className="numId">{ frmNum(ind+1) }</div>
-            <div className="contImg"><img key={img} src={img} alt=""  /></div>
+        {arImages.map((img) => 
+          <div key={img.url} className="img"  >
+            <div className="numId">{ frmNum(1) }</div>
+            <div className="contImg"><img key={img.url} src={img.url} alt=""  /></div>
             <div className="names" >
              
               {  
