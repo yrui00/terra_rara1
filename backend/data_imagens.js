@@ -1,7 +1,7 @@
 module.exports = {
     images: [
         {
-            url: "AMARELO_CANÁRIO.jpg",
+            url: "amarelo_canario.jpg",
             idProd: 1
         },
         {
