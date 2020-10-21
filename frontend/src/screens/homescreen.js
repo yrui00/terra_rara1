@@ -1,12 +1,14 @@
 import React from 'react';
 
-  
+
 function HomeScreen() {
-    
+
     return (
-        <header className="topo">
-            HOME TERRA RARA
-        </header>
+        <div>
+            <div className="construcao">
+                Terras<strong>Raras</strong> - Site em construção
+            </div>
+        </div>
     )
 }
 export default HomeScreen;

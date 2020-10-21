@@ -10,7 +10,8 @@ function ListImages() {
         $('.lightbox').fadeIn(300);
         var nameImg = img.url.split('/');
         $('.lightbox .imgLightbox').attr({ src: '/images/' + img.url, alt: nameImg[nameImg.length - 1] });
-        $('.lightbox input').val('https://www.yurisalinas.xyz/images' + img.url);
+        $('.lightbox input').val('https://www.lojaterrasraras.com.br/images/' + img.url);
+        $('.lightbox .titImage').html(img.url.split(/\.jpe?g|\.png/)[0]);
     }
 
     const closeLightbox = () => {
@@ -64,15 +65,27 @@ function ListImages() {
         }
     }
 
-    const [arImages , setImage] = useState([]);
+    const [arImages, setImage] = useState([]);
     useEffect(() => {
-      const fetchData = async () => {
-        const {data} = await axios.get("/api/jsonimgs");
-        setImage(data.images);
-      }
-      fetchData();
+        const fetchData = async () => {
+            const { data } = await axios.get("/api/jsonimgs");
+            setImage(data.images);
+        }
+        fetchData();
     }, [])
 
+    /*function importAll(r) {
+        return r.keys().map(r);
+    }
+    const images = importAll(require.context('../images_upload', false, /\.(png|jpe?g|svg)$/));
+    images.map((img) =>{
+        console.log(img.split('/')[3]);
+    });*/
+
+
+
+    var ind = 1;
+      
     return (
         <div>
             <header className="topo">
@@ -90,13 +103,14 @@ function ListImages() {
                     <div className="numResults">Resultados: <span className="num"></span></div>
                     <div className="txtResults">Pesquisando por: <span className="txt">ziper</span></div>
                 </div>
-                {arImages.map((img) =>
+                {arImages.map((img) => 
+                    
                     <div key={img.url} className="img"  >
-                        <div className="numId">{frmNum(1)}</div>
+                        <div className="numId">{frmNum(ind++)}</div>
                         <div className="contImg"><img key={img.url} src={"/tb_images/" + img.url + "?width=50&height=50"} alt="" /></div>
                         <div className="names" >
-                            <span>{img.url.split('.jp')[0]}</span>
-                            <input type="text" value={"https://www.yurisalinas.xyz/images/" + img.url} readOnly="readOnly" />
+                            <span>{img.url.split(/\.jpe?g|\.png/)[0]}</span>
+                            <input type="text" value={"https://www.lojaterrasraras.com.br/images/" + img.url} readOnly="readOnly" />
                         </div>
                         <div className="btCopy" onClick={(e) => copyText(e.target)} ></div>
                         <div className="btShow" onClick={() => openImg(img)} ></div>
@@ -106,10 +120,11 @@ function ListImages() {
 
             <div className="lightbox" onClick={() => closeLightbox()} >
                 <div className="boxImg" onClick={(e) => e.stopPropagation()} >
+                    <div className="titImage"></div>
                     <img src="" className="imgLightbox" alt="" />
-                    <input type="text" value="" readOnly="readOnly" />
-                    <div className="btCopy" onClick={(e) => copyText(e.target)} >Copiar Link</div>
-                    <div className="btX" onClick={() => closeLightbox()} >x</div>
+                    <div className="contLink"><input type="text" value="" readOnly="readOnly" /></div>
+                    <div className="btCopy" onClick={(e) => copyText(e.target)} ></div>
+                    <div className="btX" onClick={() => closeLightbox()} ></div>
                 </div>
             </div>
         </div>

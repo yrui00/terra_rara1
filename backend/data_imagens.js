@@ -1,753 +1,196 @@
 module.exports = {
     images: [
-        {
-            url: "amarelo_canario.jpg",
-            idProd: 1
-        },
-        {
-            url: "AMARELO_CANÁRIO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "AMARELO_OURO.jpg",
-            idProd: 1
-        },
-        {
-            url: "AMARELO_OURO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "AZUL_BEBE.jpg",
-            idProd: 1
-        },
-        {
-            url: "AZUL_BEBE_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "AZUL_MARINHO.jpg",
-            idProd: 1
-        },
-        {
-            url: "AZUL_MARINHO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "AZUL_MEDIO.jpg",
-            idProd: 1
-        },
-        {
-            url: "AZUL_MEDIO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "AZUL_ROYAL.jpg",
-            idProd: 1
-        },
-        {
-            url: "AZUL_ROYAL_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "AZUL_TURQUESA.jpg",
-            idProd: 1
-        },
-        {
-            url: "AZUL_TURQUESA_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "BEGE_CLARO.jpg",
-            idProd: 1
-        },
-        {
-            url: "BEGE_CLARO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "BEGE_ESCURO.jpg",
-            idProd: 1
-        },
-        {
-            url: "BEGE_ESCURO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "BEGE_MEDIO.jpg",
-            idProd: 1
-        },
-        {
-            url: "BEGE_MEDIO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "BRANCO.jpg",
-            idProd: 1
-        },
-        {
-            url: "BRANCO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "CINZA_CLARO.jpg",
-            idProd: 1
-        },
-        {
-            url: "CINZA_CLARO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "CINZA_ESCURO.jpg",
-            idProd: 1
-        },
-        {
-            url: "CINZA_ESCURO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "CINZA_MÉDIO.jpg",
-            idProd: 1
-        },
-        {
-            url: "CINZA_MÉDIO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "CINZA_PRATA.jpg",
-            idProd: 1
-        },
-        {
-            url: "CINZA_PRATA_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "CRU.jpg",
-            idProd: 1
-        },
-        {
-            url: "CRU_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_CARTEIRA_MARROM-1913.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_CARTEIRA_MARROM_2-1914.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_CARTEIRA_NÍQ.-1916.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_CARTEIRA_NÍQ._2-1915.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_CARTEIRA_O.V-1920.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_CARTEIRA_O.V_2-1919.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_CARTEIRA_OURO-0015.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_CARTEIRA_OURO_2-1910.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_CARTEIRA_PRETO-1917.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_CARTEIRA_PRETO_2-1918.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_COMUM_BRANCO-1934.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_COMUM_BRANCO_2-1936.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_COMUM_BRONZE-1930.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_COMUM_BRONZE_2-1929.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_COMUM_LAT.-1926.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_COMUM_LAT._2-0032.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_COMUM_NÍQ.-1921.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_COMUM_NÍQ._1923.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_COMUM_O.V-1927.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_COMUM_O.V_2-1928.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_COMUM_PRETO-1939.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº3_COMUM_PRETO_2-1938.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_ASTE_VAZADA_NÍQ.-1905.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_ASTE_VAZADA_NÍQ._2-1903.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_ASTE_VAZADO_LATONADO-0009.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_ASTE_VAZADO_LATONADO_2-0021.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_ASTE_VAZADO_O.V-0017.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_ASTE_VAZADO_O.V_2-0002.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_COMUM_BRONZE-0029.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_COMUM_BRONZE_2-0030.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_COMUM_LAT.-0025.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_COMUM_LATONADO_2-0005.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_COMUM_NIQ_2-0004.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_COMUM_NÍQ.-0028.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_COMUM_O.V-0024.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_COMUM_O.V_2-0023.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_COMUM_PRETO-0032.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_COMUM_PRETO_2-0014.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_GOTA_LATONADO-0027.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_GOTA_LATONADO_2-0025.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_GOTA_VAZADA_NÍQ.-1901.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_GOTA_VAZADA_NÍQ._2-1902.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_GOTA_O.V_2-0019.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_GOTA_O.V-0020.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_GOTA_VAZADO_O.V_2-0014.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_GOTA_VAZADO_O.V-0013.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_ONDULADO_LATONADO-0008.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_ONDULADO_LATONADO_2-0007.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_ONDULADO_NÍQ-0028.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_ONDULADO_NÍQ_2-0029.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_PALITO_LATONADO-0004.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_PALITO_LATONADO_2-0003.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_PALITO_NÍQ._2-1899.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_PALITO_NÍQ.-1900.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_PALITO_O.V-0021.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_PALITO_O.V_2-0022.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_RETANGULAR_LATONADO-0005.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_RETANGULAR_LATONADO_2-0022.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_RETANGULAR_NÍQ.-1897.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_RETANGULAR_NÍQ.-1898.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_RETANGULAR_O.V-0015.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_RETANGULAR_O.V_2-0016.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_SEM_PUXADOR_LAT.-0036.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_SEM_PUXADOR_LATONADO_2-0001.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_SEM_PUXADOR_NÍQ.-0033.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_SEM_PUXADOR_NÍQ._2-0034.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_SEM_PUXADOR_O.V-0037.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_SEM_PUXADOR_O.V_2-0003.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_TRATOR_CINZA-1907.jpg",
-            idProd: 1
-        },
-        {
-            url: "CURSOR_Nº5_TRATOR_CINZA_2-1908.jpg",
-            idProd: 1
-        },
-        {
-            url: "CUSOR_Nº5_ONDULADO_O.V_2-0012.jpg",
-            idProd: 1
-        },
-        {
-            url: "CUSOR_Nº5_ONDULADO_O.V_2-0011.jpg",
-            idProd: 1
-        },
-        {
-            url: "FERRUGEM_CLARO.jpg",
-            idProd: 1
-        },
-        {
-            url: "FERRUGEM_CLARO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "FERRUGEM_ESCURO.jpg",
-            idProd: 1
-        },
-        {
-            url: "FERRUGEM_ESCURO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "LARANJA.jpg",
-            idProd: 1
-        },
-        {
-            url: "LARANJA_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "LILÁS.jpg",
-            idProd: 1
-        },
-        {
-            url: "LILÁS_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "MARROM_CAFE.jpg",
-            idProd: 1
-        },
-        {
-            url: "MARROM_CAFE_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "MARROM_CHOCOLATE.jpg",
-            idProd: 1
-        },
-        {
-            url: "MARROM_CHOCOLATE_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "PRETO.jpg",
-            idProd: 1
-        },
-        {
-            url: "PRETO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "ROSA_BEBE.jpg",
-            idProd: 1
-        },
-        {
-            url: "ROSA_BEBE_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "ROSA_CHICLETE.jpg",
-            idProd: 1
-        },
-        {
-            url: "ROSA_CHICLETE_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "ROSA_PINK.jpg",
-            idProd: 1
-        },
-        {
-            url: "ROSA_PINK_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "ROSA_PINK_II.jpg",
-            idProd: 1
-        },
-        {
-            url: "ROSA_PINK_II_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "ROXO.jpg",
-            idProd: 1
-        },
-        {
-            url: "ROXO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "SALMAO.jpg",
-            idProd: 1
-        },
-        {
-            url: "SALMAO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "TIFFANY.jpg",
-            idProd: 1
-        },
-        {
-            url: "TIFFANY_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VERDE_BANDEIRA.jpg",
-            idProd: 1
-        },
-        {
-            url: "VERDE_BANDEIRA_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VERDE_MILITAR.jpg",
-            idProd: 1
-        },
-        {
-            url: "VERDE_MILITAR_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VERDE_OLIVA.jpg",
-            idProd: 1
-        },
-        {
-            url: "VERDE_OLIVA_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VERDE_PETROLEO.jpg",
-            idProd: 1
-        },
-        {
-            url: "VERDE_PETROLEO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VERMELHO_ESCURO.jpg",
-            idProd: 1
-        },
-        {
-            url: "VERMELHO_ESCURO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VERMELHO_TOMATE.jpg",
-            idProd: 1
-        },
-        {
-            url: "VERMELHO_TOMATE_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VINHO.jpg",
-            idProd: 1
-        },
-        {
-            url: "VINHO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_AMARELO.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_AMARELO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_AZUL_BEBE-2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_AZUL_BEBE.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_AZUL_MARINHO.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_AZUL_MARINHO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_AZUL_ROYAL.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_AZUL_ROYAL_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_BEGE-2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_BEGE.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_BRANCO.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_BRANCO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_CINZA_CLARO-2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_CINZA_CLARO.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_CINZA_ESCURO.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_CINZA_ESCURO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_CRU.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_CRU_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_LARANJA.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_LARANJA_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_LILAS.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_LILÁS_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_MARROM.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_MARROM_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_PRETO.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_PRETO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_ROSA_BEBE-2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_ROSA_BEBE.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_ROSA_PINK.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_ROSA_PINK_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_ROXO.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_ROXO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_VERDE_BANDEIRA.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_VERDE_BANDEIRA_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_VERDE_BEBE-2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_VERDE_BEBE.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_VERDE_MILITAR.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_VERDE_MILITAR_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_VERMELHO.jpg",
-            idProd: 1
-        },
-        {
-            url: "VIÉS_BONEON_VERMELHO_2.jpg",
-            idProd: 1
-        },
-        {
-            url: "categorização_viés.jpg",
-            idProd: 1
-        },
-
+        { url: "amarelo_canario.jpg", idProd: 1 },
+        { url: "amarelo_canario_2.jpg", idProd: 1 },
+        { url: "amarelo_ouro.jpg", idProd: 1 },
+        { url: "amarelo_ouro_2.jpg", idProd: 1 },
+        { url: "azul_bebe.jpg", idProd: 1 },
+        { url: "azul_bebe_2.jpg", idProd: 1 },
+        { url: "azul_marinho.jpg", idProd: 1 },
+        { url: "azul_marinho_2.jpg", idProd: 1 },
+        { url: "azul_medio.jpg", idProd: 1 },
+        { url: "azul_medio_2.jpg", idProd: 1 },
+        { url: "azul_royal.jpg", idProd: 1 },
+        { url: "azul_royal_2.jpg", idProd: 1 },
+        { url: "azul_turquesa.jpg", idProd: 1 },
+        { url: "azul_turquesa_2.jpg", idProd: 1 },
+        { url: "bege_claro.jpg", idProd: 1 },
+        { url: "bege_claro_2.jpg", idProd: 1 },
+        { url: "bege_escuro.jpg", idProd: 1 },
+        { url: "bege_escuro_2.jpg", idProd: 1 },
+        { url: "bege_medio.jpg", idProd: 1 },
+        { url: "bege_medio_2.jpg", idProd: 1 },
+        { url: "branco.jpg", idProd: 1 },
+        { url: "branco_2.jpg", idProd: 1 },
+        { url: "cinza_claro.jpg", idProd: 1 },
+        { url: "cinza_claro_2.jpg", idProd: 1 },
+        { url: "cinza_escuro.jpg", idProd: 1 },
+        { url: "cinza_escuro_2.jpg", idProd: 1 },
+        { url: "cinza_medio.jpg", idProd: 1 },
+        { url: "cinza_medio_2.jpg", idProd: 1 },
+        { url: "cinza_prata.jpg", idProd: 1 },
+        { url: "cinza_prata_2.jpg", idProd: 1 },
+        { url: "cru.jpg", idProd: 1 },
+        { url: "cru_2.jpg", idProd: 1 },
+        { url: "cursor_n3_carteira_marrom-1913.jpg", idProd: 1 },
+        { url: "cursor_n3_carteira_marrom_2-1914.jpg", idProd: 1 },
+        { url: "cursor_n3_carteira_niq.-1916.jpg", idProd: 1 },
+        { url: "cursor_n3_carteira_niq._2-1915.jpg", idProd: 1 },
+        { url: "cursor_n3_carteira_o.v-1920.jpg", idProd: 1 },
+        { url: "cursor_n3_carteira_o.v_2-1919.jpg", idProd: 1 },
+        { url: "cursor_n3_carteira_ouro-0015.jpg", idProd: 1 },
+        { url: "cursor_n3_carteira_ouro_2-1910.jpg", idProd: 1 },
+        { url: "cursor_n3_carteira_preto-1917.jpg", idProd: 1 },
+        { url: "cursor_n3_carteira_preto_2-1918.jpg", idProd: 1 },
+        { url: "cursor_n3_comum_branco-1934.jpg", idProd: 1 },
+        { url: "cursor_n3_comum_branco_2-1936.jpg", idProd: 1 },
+        { url: "cursor_n3_comum_bronze-1930.jpg", idProd: 1 },
+        { url: "cursor_n3_comum_bronze_2-1929.jpg", idProd: 1 },
+        { url: "cursor_n3_comum_lat.-1926.jpg", idProd: 1 },
+        { url: "cursor_n3_comum_lat._2-0032.jpg", idProd: 1 },
+        { url: "cursor_n3_comum_niq.-1921.jpg", idProd: 1 },
+        { url: "cursor_n3_comum_niq._1923.jpg", idProd: 1 },
+        { url: "cursor_n3_comum_o.v-1927.jpg", idProd: 1 },
+        { url: "cursor_n3_comum_o.v_2-1928.jpg", idProd: 1 },
+        { url: "cursor_n3_comum_preto-1939.jpg", idProd: 1 },
+        { url: "cursor_n3_comum_preto_2-1938.jpg", idProd: 1 },
+        { url: "cursor_n5_aste_vazada_niq.-1905.jpg", idProd: 1 },
+        { url: "cursor_n5_aste_vazada_niq._2-1903.jpg", idProd: 1 },
+        { url: "cursor_n5_aste_vazado_latonado-0009.jpg", idProd: 1 },
+        { url: "cursor_n5_aste_vazado_latonado_2-0021.jpg", idProd: 1 },
+        { url: "cursor_n5_aste_vazado_o.v-0017.jpg", idProd: 1 },
+        { url: "cursor_n5_aste_vazado_o.v_2-0002.jpg", idProd: 1 },
+        { url: "cursor_n5_comum_bronze-0029.jpg", idProd: 1 },
+        { url: "cursor_n5_comum_bronze_2-0030.jpg", idProd: 1 },
+        { url: "cursor_n5_comum_lat.-0025.jpg", idProd: 1 },
+        { url: "cursor_n5_comum_latonado_2-0005.jpg", idProd: 1 },
+        { url: "cursor_n5_comum_niq_2-0004.jpg", idProd: 1 },
+        { url: "cursor_n5_comum_niq.-0028.jpg", idProd: 1 },
+        { url: "cursor_n5_comum_o.v-0024.jpg", idProd: 1 },
+        { url: "cursor_n5_comum_o.v_2-0023.jpg", idProd: 1 },
+        { url: "cursor_n5_comum_preto-0032.jpg", idProd: 1 },
+        { url: "cursor_n5_comum_preto_2-0014.jpg", idProd: 1 },
+        { url: "cursor_n5_gota_latonado-0027.jpg", idProd: 1 },
+        { url: "cursor_n5_gota_latonado_2-0025.jpg", idProd: 1 },
+        { url: "cursor_n5_gota_niq.-1892.jpg", idProd: 1 },
+        { url: "cursor_n5_gota_niq._2-1893.jpg", idProd: 1 },
+        { url: "cursor_n5_gota_o.v-0020.jpg", idProd: 1 },
+        { url: "cursor_n5_gota_o.v_2-0019.jpg", idProd: 1 },
+        { url: "cursor_n5_gota_vazada_niq.-1901.jpg", idProd: 1 },
+        { url: "cursor_n5_gota_vazada_niq._2-1902.jpg", idProd: 1 },
+        { url: "cursor_n5_gota_vazado_o.v-0013.jpg", idProd: 1 },
+        { url: "cursor_n5_gota_vazado_o.v_2-0014.jpg", idProd: 1 },
+        { url: "cursor_n5_ondulado_latonado-0008.jpg", idProd: 1 },
+        { url: "cursor_n5_ondulado_latonado_2-0007.jpg", idProd: 1 },
+        { url: "cursor_n5_ondulado_niq-0028.jpg", idProd: 1 },
+        { url: "cursor_n5_ondulado_niq_2-0029.jpg", idProd: 1 },
+        { url: "cursor_n5_palito_latonado-0004.jpg", idProd: 1 },
+        { url: "cursor_n5_palito_latonado_2-0003.jpg", idProd: 1 },
+        { url: "cursor_n5_palito_niq.-1900.jpg", idProd: 1 },
+        { url: "cursor_n5_palito_niq._2-1899.jpg", idProd: 1 },
+        { url: "cursor_n5_palito_o.v-0021.jpg", idProd: 1 },
+        { url: "cursor_n5_palito_o.v_2-0022.jpg", idProd: 1 },
+        { url: "cursor_n5_retangular_latonado-0005.jpg", idProd: 1 },
+        { url: "cursor_n5_retangular_latonado_2-0022.jpg", idProd: 1 },
+        { url: "cursor_n5_retangular_niq.-1897.jpg", idProd: 1 },
+        { url: "cursor_n5_retangular_niq.-1898.jpg", idProd: 1 },
+        { url: "cursor_n5_retangular_o.v-0015.jpg", idProd: 1 },
+        { url: "cursor_n5_retangular_o.v_2-0016.jpg", idProd: 1 },
+        { url: "cursor_n5_sem_puxador_lat.-0036.jpg", idProd: 1 },
+        { url: "cursor_n5_sem_puxador_latonado_2-0001.jpg", idProd: 1 },
+        { url: "cursor_n5_sem_puxador_niq.-0033.jpg", idProd: 1 },
+        { url: "cursor_n5_sem_puxador_niq._2-0034.jpg", idProd: 1 },
+        { url: "cursor_n5_sem_puxador_o.v-0037.jpg", idProd: 1 },
+        { url: "cursor_n5_sem_puxador_o.v_2-0003.jpg", idProd: 1 },
+        { url: "cursor_n5_trator_cinza-1907.jpg", idProd: 1 },
+        { url: "cursor_n5_trator_cinza_2-1908.jpg", idProd: 1 },
+        { url: "cusor_n5_ondulado_o.v_2-0011.jpg", idProd: 1 },
+        { url: "cusor_n5_ondulado_o.v_2-0012.jpg", idProd: 1 },
+        { url: "ferrugem_claro.jpg", idProd: 1 },
+        { url: "ferrugem_claro_2.jpg", idProd: 1 },
+        { url: "ferrugem_escuro.jpg", idProd: 1 },
+        { url: "ferrugem_escuro_2.jpg", idProd: 1 },
+        { url: "laranja.jpg", idProd: 1 },
+        { url: "laranja_2.jpg", idProd: 1 },
+        { url: "lilas.jpg", idProd: 1 },
+        { url: "lilas_2.jpg", idProd: 1 },
+        { url: "marrom_cafe.jpg", idProd: 1 },
+        { url: "marrom_cafe_2.jpg", idProd: 1 },
+        { url: "marrom_chocolate.jpg", idProd: 1 },
+        { url: "marrom_chocolate_2.jpg", idProd: 1 },
+        { url: "preto.jpg", idProd: 1 },
+        { url: "preto_2.jpg", idProd: 1 },
+        { url: "rosa_bebe.jpg", idProd: 1 },
+        { url: "rosa_bebe_2.jpg", idProd: 1 },
+        { url: "rosa_chiclete.jpg", idProd: 1 },
+        { url: "rosa_chiclete_2.jpg", idProd: 1 },
+        { url: "rosa_pink.jpg", idProd: 1 },
+        { url: "rosa_pink_2.jpg", idProd: 1 },
+        { url: "rosa_pink_ii.jpg", idProd: 1 },
+        { url: "rosa_pink_ii_2.jpg", idProd: 1 },
+        { url: "roxo.jpg", idProd: 1 },
+        { url: "roxo_2.jpg", idProd: 1 },
+        { url: "salmao.jpg", idProd: 1 },
+        { url: "salmao_2.jpg", idProd: 1 },
+        { url: "tiffany.jpg", idProd: 1 },
+        { url: "tiffany_2.jpg", idProd: 1 },
+        { url: "verde_bandeira.jpg", idProd: 1 },
+        { url: "verde_bandeira_2.jpg", idProd: 1 },
+        { url: "verde_militar.jpg", idProd: 1 },
+        { url: "verde_militar_2.jpg", idProd: 1 },
+        { url: "verde_oliva.jpg", idProd: 1 },
+        { url: "verde_oliva_2.jpg", idProd: 1 },
+        { url: "verde_petroleo.jpg", idProd: 1 },
+        { url: "verde_petroleo_2.jpg", idProd: 1 },
+        { url: "vermelho_escuro.jpg", idProd: 1 },
+        { url: "vermelho_escuro_2.jpg", idProd: 1 },
+        { url: "vermelho_tomate.jpg", idProd: 1 },
+        { url: "vermelho_tomate_2.jpg", idProd: 1 },
+        { url: "vinho.jpg", idProd: 1 },
+        { url: "vinho_.jpg", idProd: 1 },
+        { url: "vinho_2.jpg", idProd: 1 },
+        { url: "vinho_2_.jpg", idProd: 1 },
+        { url: "vies_boneon_amarelo.jpg", idProd: 1 },
+        { url: "vies_boneon_amarelo_2.jpg", idProd: 1 },
+        { url: "vies_boneon_azul_bebe-2.jpg", idProd: 1 },
+        { url: "vies_boneon_azul_bebe.jpg", idProd: 1 },
+        { url: "vies_boneon_azul_marinho.jpg", idProd: 1 },
+        { url: "vies_boneon_azul_marinho_2.jpg", idProd: 1 },
+        { url: "vies_boneon_azul_royal.jpg", idProd: 1 },
+        { url: "vies_boneon_azul_royal_2.jpg", idProd: 1 },
+        { url: "vies_boneon_bege-2.jpg", idProd: 1 },
+        { url: "vies_boneon_bege.jpg", idProd: 1 },
+        { url: "vies_boneon_branco.jpg", idProd: 1 },
+        { url: "vies_boneon_branco_2.jpg", idProd: 1 },
+        { url: "vies_boneon_cinza_claro-2.jpg", idProd: 1 },
+        { url: "vies_boneon_cinza_claro.jpg", idProd: 1 },
+        { url: "vies_boneon_cinza_escuro.jpg", idProd: 1 },
+        { url: "vies_boneon_cinza_escuro_2.jpg", idProd: 1 },
+        { url: "vies_boneon_cru.jpg", idProd: 1 },
+        { url: "vies_boneon_cru_2.jpg", idProd: 1 },
+        { url: "vies_boneon_laranja.jpg", idProd: 1 },
+        { url: "vies_boneon_laranja_2.jpg", idProd: 1 },
+        { url: "vies_boneon_lilas.jpg", idProd: 1 },
+        { url: "vies_boneon_lilas_2.jpg", idProd: 1 },
+        { url: "vies_boneon_marrom.jpg", idProd: 1 },
+        { url: "vies_boneon_marrom_2.jpg", idProd: 1 },
+        { url: "vies_boneon_preto.jpg", idProd: 1 },
+        { url: "vies_boneon_preto_2.jpg", idProd: 1 },
+        { url: "vies_boneon_rosa_bebe-2.jpg", idProd: 1 },
+        { url: "vies_boneon_rosa_bebe.jpg", idProd: 1 },
+        { url: "vies_boneon_rosa_pink.jpg", idProd: 1 },
+        { url: "vies_boneon_rosa_pink_2.jpg", idProd: 1 },
+        { url: "vies_boneon_roxo.jpg", idProd: 1 },
+        { url: "vies_boneon_roxo_2.jpg", idProd: 1 },
+        { url: "vies_boneon_verde_bandeira.jpg", idProd: 1 },
+        { url: "vies_boneon_verde_bandeira_2.jpg", idProd: 1 },
+        { url: "vies_boneon_verde_bebe-2.jpg", idProd: 1 },
+        { url: "vies_boneon_verde_bebe.jpg", idProd: 1 },
+        { url: "vies_boneon_verde_militar.jpg", idProd: 1 },
+        { url: "vies_boneon_verde_militar_2.jpg", idProd: 1 },
+        { url: "vies_boneon_vermelho.jpg", idProd: 1 },
+        { url: "vies_boneon_vermelho_2.jpg", idProd: 1 },
+        { url: "categorizacao_vies.jpg", idProd: 1 },
+        
     ]
 }

@@ -5,7 +5,7 @@ const app = express();
 const imageList = require('./backend/data_imagens.js');
 const bodyParser = require('body-parser');
 const Media = require('./backend/routes/resize');
-
+const fs = require('fs');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -22,20 +22,50 @@ app.get('/', (req, res) => {
 });
 
 app.get('/tb_images/:img', (req, res) => {
-  /*if(req.params.img) {
-    let image = new Media(req.params.img);
-    image.thumb(req, res);
-    console.log(image);
-    res.sendFile(path.join(__dirname , 'uploads',image.src));
-  } else {
-    res.sendStatus(403);
-  }*/
   res.sendFile(path.join(`${__dirname}/uploads/${req.params.img}`));
-  
 });
 app.get('/images/:img', (req, res) => {
   res.sendFile(path.join(`${__dirname}/uploads/${req.params.img}`));
 });
+
+
+
+app.get('/copy', (req, res) => {
+  
+  imageList.images.map((img) => {
+    let newName = img.url.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace('º','');
+    var url = "./frontend/src/images_upload/" + img.url;
+    copyFile(url,'./frontend/src/renomeadas/'+newName);
+
+    return '';
+  })
+
+});
+
+function copyFile(source, target, cb) {
+  
+  var cbCalled = true;
+
+  var rd = fs.createReadStream(source);
+  rd.on("error", function(err) {
+    done(err);
+  });
+  var wr = fs.createWriteStream(target);
+  wr.on("error", function(err) {
+    done(err);
+  });
+  wr.on("close", function(ex) {
+    done();
+  });
+  rd.pipe(wr);
+
+  function done(err) {
+    if (!cbCalled) {
+      cb(err);
+      cbCalled = true;
+    }
+  }
+}
 
 
 app.listen(process.env.PORT_APP);
