@@ -4,22 +4,59 @@ const path = require('path');
 const app = express();
 const imageList = require('./backend/data_imagens.js');
 const bodyParser = require('body-parser');
-const Media = require('./backend/routes/resize');
 const fs = require('fs');
+const dotenv = require('dotenv');
+const config = require('./backend/config');
+const mongoose = require('mongoose');
+const userRoute = require('./backend/routes/userRoute');
+const categoryRoute = require('./backend/routes/categoryRoute');
+const productRoute = require('./backend/routes/productRoute');
+const uploadImageRoute = require('./backend/routes/uploadImageRoute');
 
+const fileUpload = require('express-fileupload');
+const cors = require('cors');
+const morgan = require('morgan');
+const _ = require('lodash');
+
+
+
+dotenv.config();
+const mongodbURL = config.MONGODB_URL;
+//console.log(mongodbURL);
+mongoose.connect(mongodbURL , {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex:true
+}).catch(error => console.log(error));
+
+mongoose.connection.on('connected', () => {
+  console.log('CONECTADO AO BANCO')
+})
+
+app.use(fileUpload({ 
+  createParentPath: true
+ }));
+
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
+app.use(morgan('dev'));
 
-app.use(express.static(path.join('frontend','build')));
+//app.use(express.static(path.join('frontend','build')));
+
+app.use("/api/users", userRoute );
+app.use("/api/category", categoryRoute );
+app.use("/api/product", productRoute );
+app.use("/api/upload-image", uploadImageRoute );
 
 app.get('/api/jsonimgs', (req, res) => {
   res.send(imageList);
 })
 
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
   res.sendFile(path.join(`${__dirname}/frontend/build/index.html`));
-});
+});*/
 
 app.get('/tb_images/:img', (req, res) => {
   res.sendFile(path.join(`${__dirname}/uploads/${req.params.img}`));
@@ -29,7 +66,7 @@ app.get('/images/:img', (req, res) => {
 });
 
 
-
+/*
 app.get('/copy', (req, res) => {
   
   imageList.images.map((img) => {
@@ -41,7 +78,7 @@ app.get('/copy', (req, res) => {
   })
 
 });
-
+*/
 function copyFile(source, target, cb) {
   
   var cbCalled = true;
