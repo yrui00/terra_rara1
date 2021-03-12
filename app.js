@@ -18,24 +18,26 @@ const cors = require('cors');
 const morgan = require('morgan');
 const _ = require('lodash');
 
+const pdf = require('html-pdf');
+const pdfTemplate = require('./backend/models/layoutPdf');
 
 
 dotenv.config();
 const mongodbURL = config.MONGODB_URL;
 //console.log(mongodbURL);
-mongoose.connect(mongodbURL , {
+mongoose.connect(mongodbURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex:true
+  useCreateIndex: true
 }).catch(error => console.log(error));
 
 mongoose.connection.on('connected', () => {
   console.log('CONECTADO AO BANCO')
 })
 
-app.use(fileUpload({ 
+app.use(fileUpload({
   createParentPath: true
- }));
+}));
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -45,18 +47,14 @@ app.use(morgan('dev'));
 
 //app.use(express.static(path.join('frontend','build')));
 
-app.use("/api/users", userRoute );
-app.use("/api/category", categoryRoute );
-app.use("/api/product", productRoute );
-app.use("/api/upload-image", uploadImageRoute );
+app.use("/api/users", userRoute);
+app.use("/api/category", categoryRoute);
+app.use("/api/product", productRoute);
+app.use("/api/upload-image", uploadImageRoute);
 
 app.get('/api/jsonimgs', (req, res) => {
   res.send(imageList);
 })
-
-/*app.get('/', (req, res) => {
-  res.sendFile(path.join(`${__dirname}/frontend/build/index.html`));
-});*/
 
 app.get('/tb_images/:img', (req, res) => {
   res.sendFile(path.join(`${__dirname}/uploads/${req.params.img}`));
@@ -64,6 +62,22 @@ app.get('/tb_images/:img', (req, res) => {
 app.get('/images/:img', (req, res) => {
   res.sendFile(path.join(`${__dirname}/uploads/${req.params.img}`));
 });
+
+
+app.post('/api/create-pdf', (req, res) => {
+  pdf.create(pdfTemplate(req.body), {}).toFile(`${__dirname}/uploads/result.pdf`, (err) => {
+    if (err) {""
+      res.send(Promise.reject());
+    }
+
+    res.send(Promise.resolve());
+  });
+});
+
+app.get('/api/fetch-pdf', (req, res) => {
+  res.sendFile(`${__dirname}/uploads/result.pdf`)
+})
+
 
 
 /*
@@ -78,20 +92,19 @@ app.get('/copy', (req, res) => {
   })
 
 });
-*/
 function copyFile(source, target, cb) {
-  
+
   var cbCalled = true;
 
   var rd = fs.createReadStream(source);
-  rd.on("error", function(err) {
+  rd.on("error", function (err) {
     done(err);
   });
   var wr = fs.createWriteStream(target);
-  wr.on("error", function(err) {
+  wr.on("error", function (err) {
     done(err);
   });
-  wr.on("close", function(ex) {
+  wr.on("close", function (ex) {
     done();
   });
   rd.pipe(wr);
@@ -103,6 +116,7 @@ function copyFile(source, target, cb) {
     }
   }
 }
+*/
 
 
 app.listen(process.env.PORT_APP);

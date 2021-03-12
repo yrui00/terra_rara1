@@ -6,8 +6,13 @@ const loginFunc = (login,password) => async (dispatch) => {
     dispatch({type: USER_SIGNIN_REQUEST, payload: {login , password} });
     try {
         const {data} = await  Axios.post("/api/users/login" , {login , password} );
-        dispatch({type: USER_SIGNIN_SUCCESS, payload: data });
-        Cookie.set('userInfo' , JSON.stringify(data));
+        
+        if(data.login){
+            dispatch({type: USER_SIGNIN_SUCCESS, payload: data });
+            Cookie.set('userInfo' , JSON.stringify(data));
+        } else {
+            dispatch({type: USER_SIGNIN_FAIL, payload: data.message });
+        }
     } catch (error) {
         dispatch({type: USER_SIGNIN_FAIL, payload: error.message });
     }

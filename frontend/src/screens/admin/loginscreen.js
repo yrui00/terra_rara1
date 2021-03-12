@@ -29,8 +29,8 @@ function LoginAdmScreen(props) {
             <div className="contLogin">
                 <div className="contForm" >
                     <form onSubmit={submitHandler} >
-                        {loading && <div className="lineForm">loading</div>}
-                        {error && <div className="lineForm">{error}</div>}
+                        {loading && <div className="lineForm">Carregando</div>}
+                        {error && <div className="lineForm errorForm">{error}</div>}
                         <div className="lineForm">
                             <label htmlFor="login">Login</label>
                             <input type="text" name="login" onChange={(e) => setLogin(e.target.value)} />

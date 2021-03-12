@@ -5,6 +5,7 @@ import CategoryAdmScreen from './categoryScreen';
 import HomeAdmScreen from './homeAdmScreen';
 import LoginAdmScreen from './loginscreen';
 import ProductAdmScreen from './productsScreen';
+import CatalogoAdmScreen from './catalogoScreen';
 import ListImages from './listimages';
 
 function AdminScreen(props) {
@@ -19,11 +20,12 @@ function AdminScreen(props) {
     },[userInfo]);
 
     return (
-
+ 
         <Switch baseame="/admin" >
             <Route path="/admin/login" component={LoginAdmScreen} />
             <Route path="/admin/categorias" component={CategoryAdmScreen} />
             <Route path="/admin/produtos" component={ProductAdmScreen} />
+            <Route path="/admin/catalogo" component={CatalogoAdmScreen} />
             <Route path="/admin/listaimagens" component={ListImages} />
             <Route path="/admin/" component={HomeAdmScreen} />
         </Switch>

@@ -10,7 +10,7 @@ function MenuAdmin(props) {
     
     const handleLogout = () => {
         dispatch(logout());
-        props.history.push("/admin/login");
+        //props.history.push("/admin/login");
     }
 
     const handdlebtMobile = () => {
@@ -31,6 +31,9 @@ function MenuAdmin(props) {
                 </li>
                 <li>
                     <Link to={'/admin/listaimagens'}>Lista Imagens</Link>
+                </li>
+                <li>
+                    <Link to={'/admin/catalogo'}>Gerar Catalogo</Link>
                 </li>
                 <li className="linkSair">
                     <button type="button" onClick={handleLogout} className="btLogout">Sair</button>

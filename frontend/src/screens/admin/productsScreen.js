@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import MenuAdmin from './menuAdmin';
-import { deleteProduct, registerProduct, listProduct, uploadImageProduct, deleteImage } from '../../actions/productActions';
+import { deleteProduct, registerProduct, listProduct, uploadImageProduct, delImage } from '../../actions/productActions';
 import { listCategory } from '../../actions/categoryActions';
 import Select from '@material-ui/core/Select';
+import Pagination from '@material-ui/lab/Pagination';
 
 
 function ProductAdmScreen(props) {
@@ -11,11 +12,14 @@ function ProductAdmScreen(props) {
     const [modalVisible, setModalVisible] = useState(false);
     const [id, setId] = useState('');
     const [titulo, setTitulo] = useState('');
+    const [destaque, setDestaque] = useState(false);
     const [codigo, setCodigo] = useState('');
+    const [tamanho, setTamanho] = useState('');
+    const [modelo, setModelo] = useState('');
+    const [cor, setCor] = useState('');
     const [preco, setPreco] = useState('');
-    const [valCategory, setValCategory] = useState([]);
     const [descricao, setDescricao] = useState('');
-    const [inputFile, setInputFile] = useState([]);
+    const [inputFile] = useState([]);
     const [imagesUploaded, setImagesUploaded] = useState([]);
     const [alertThumb, setAlertThumb] = useState('');
 
@@ -25,7 +29,9 @@ function ProductAdmScreen(props) {
     const { image: imageUpload, finish: successImg, error: errorImg } = uploadImage;
 
     const productList = useSelector((state) => state.productList);
-    const { product, error } = productList;
+    const { product, success:successListProduct ,  error } = productList;
+    const [productFilter , setProductFilter] = useState([]);
+    
 
     const categoryList = useSelector((state) => state.categoryList);
     const { category } = categoryList;
@@ -43,7 +49,7 @@ function ProductAdmScreen(props) {
         if (successSave) {
             setModalVisible(false);
         }
-        dispatch(listCategory());
+        dispatch(listCategory('','','1'));
         dispatch(listProduct());
         return () => {
         };
@@ -57,14 +63,18 @@ function ProductAdmScreen(props) {
             setId(product._id);
             setTitulo(product.titulo);
             setCodigo(product.codigo);
+            setTamanho(product.tamanho);
+            setModelo(product.modelo);
+            setCor(product.cor);
             setPreco(product.preco);
             setDescricao(product.descricao);
-            setValCategory(product.categoria);
+            setOptionsCategorySelected(product.categoria);
             setImagesUploaded(product.imagens);
+            setDestaque(product.destaque);
             var ar = [];
-            category.map(a => {
-                product.categoria.map(b => {
-                    if (a._id == b._id) {
+            category.forEach(a => {
+                product.categoria.forEach(b => {
+                    if (a._id === b._id) {
                         ar.push(b._id);
                     }
                 });
@@ -74,9 +84,13 @@ function ProductAdmScreen(props) {
             setId('');
             setTitulo('');
             setCodigo('');
+            setTamanho('');
+            setModelo('');
+            setCor('');
             setPreco('');
             setDescricao('');
-            setValCategory([]);
+            setDestaque(false);
+            setOptionsCategorySelected([]);
             setImagesUploaded([]);
         }
     };
@@ -89,25 +103,29 @@ function ProductAdmScreen(props) {
         e.preventDefault();
 
         var arCat = [];
-        optionsCategorySelected.map(a => {
-            category.map(b => {
-                if (a == b._id) {
+        optionsCategorySelected.forEach(a => {
+            category.forEach(b => {
+                if (a === b._id) {
                     arCat.push(b);
                 }
             });
         });
-        
-        setValCategory(arCat);
-        
+
+        setOptionsCategorySelected(arCat);
+
         dispatch(
             registerProduct({
                 _id: id,
                 titulo,
                 codigo,
+                tamanho,
+                modelo,
+                cor,
                 preco,
                 descricao,
                 categoria: arCat,
-                imagens: imagesUploaded
+                imagens: imagesUploaded,
+                destaque,
             })
             //categoria: valCategory.map(o => ({ _id: o.value, titulo: o.label })),
         );
@@ -116,23 +134,34 @@ function ProductAdmScreen(props) {
     useEffect(() => {
         if (successImg) {
             setImagesUploaded([...imagesUploaded, imageUpload]);
-            if (imagesUploaded.filter((e) => e.isThumb === true).length == 0) {
+            if (imagesUploaded.filter((e) => e.isThumb === true).length === 0) {
                 setAlertThumb('Selecione uma imagem para ser Thumb');
             }
         }
-        if (errorImg) {
 
-        }
         return () => {
             //
         };
-    }, [successImg, errorImg]);
+    }, [successImg, errorImg ]);
 
     const onChangeImg = async (e) => {
+        
         //setInputFile(e.target.files)
         Array.from(e.target.files).forEach(file => {
             const formData = new FormData();
-            formData.append('file', file);
+            
+            var arN = file.name.split('.');
+            var newName = '';
+            arN.map((i, j) => {
+                newName = String(newName) + String(i);
+                if (j === arN.length - 2) {
+                    newName += String(new Date().valueOf());
+                    newName += '.';
+                }
+            })
+            
+            formData.append('file', file , newName);
+            
             const head = { headers: { 'Content-Type': 'multipart/form-data' } }
             dispatch(uploadImageProduct(formData, head));
         });
@@ -141,7 +170,7 @@ function ProductAdmScreen(props) {
 
     const removeImg = async (img) => {
         try {
-            dispatch(deleteImage(img.fileName));
+            dispatch(delImage(img.fileName));
             var ind = imagesUploaded.indexOf(img);
             imagesUploaded.splice(ind, 1);
             setImagesUploaded([...imagesUploaded]);
@@ -167,9 +196,55 @@ function ProductAdmScreen(props) {
                 value.push(options[i].value);
             }
         }
-        /* setValCategory(value ); */
         setOptionsCategorySelected(value);
     }
+
+    const handleFilterCategory = (e) => {
+        setCurrentPage(1);
+        var ar = []
+        
+        if(e.target.value !== ''){
+            for (let i = 0, l = product.length; i < l; i += 1) {
+                //console.log(product[i].categoria , e.target.value)
+                var push = false;
+                product[i].categoria.map((cat) => {
+                    if (cat._id === e.target.value) {
+                        push = true;
+                    }
+                })
+                if(push) ar.push(product[i]);
+            }
+            setProductFilter(ar);
+        } else {
+            setProductFilter(product);
+        }
+    }
+
+    useEffect(() => {
+        if(successListProduct){
+            setProductFilter(product);
+        }
+
+        return () => {
+            //
+        };
+    }, [successListProduct]);
+
+
+    
+    
+    ///// paginaçao
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postPerPage] = useState(10);
+
+    const indexOfLastPost = currentPage * postPerPage;
+    const indexOfFirstPost = indexOfLastPost - postPerPage;
+    const postsPagination = productFilter.slice(indexOfFirstPost, indexOfLastPost);
+
+    const evtPaginate = (obj, num) => {
+        setCurrentPage(num);
+    }
+
 
 
     return (
@@ -181,8 +256,29 @@ function ProductAdmScreen(props) {
                     <h1 >
                         Produtos
                     </h1>
-                    {!modalVisible &&
+                    {!modalVisible && <div className="contentTopo">
+                        <div className="contFiltro" >
+                            <div className="campoFiltro">
+                                <label htmlFor="select-filter">Categoria </label>
+                                <Select
+                                    native
+                                    inputProps={{
+                                        id: 'select-filter',
+                                    }}
+                                    onChange={handleFilterCategory}
+                                    className="selectCat"
+                                >
+                                    <option key="" value="" ></option>
+                                    {category.map((cat) => (
+                                        <option key={cat._id} value={cat._id} >
+                                            {cat.titulo}
+                                        </option>
+                                    ))}
+                                </Select>
+                            </div>
+                        </div>
                         <button className="linkAdd btAdmin" onClick={() => openModal({})}>Adicionar+</button>
+                    </div>
                     }
                     {modalVisible &&
                         <button className="linkAdd btAdmin" onClick={() => setModalVisible(false)}> Voltar </button>
@@ -199,8 +295,24 @@ function ProductAdmScreen(props) {
                                     <input type="text" name="titulo" id="titulo" value={titulo} onChange={(e) => setTitulo(e.target.value)} ></input>
                                 </li>
                                 <li className="lineForm">
+                                    <label htmlFor="codigo">Destaque</label>
+                                    <div className={destaque ? 'checkDest checked' : 'checkDest'} onClick={(e) => setDestaque(!destaque)} ></div>
+                                </li>
+                                <li className="lineForm">
                                     <label htmlFor="codigo">Codigo</label>
                                     <input type="text" name="codigo" id="codigo" value={codigo} onChange={(e) => setCodigo(e.target.value)} ></input>
+                                </li>
+                                <li className="lineForm">
+                                    <label htmlFor="tamanho">Tamanho</label>
+                                    <input type="text" name="tamanho" id="tamanho" value={tamanho} onChange={(e) => setTamanho(e.target.value)} ></input>
+                                </li>
+                                <li className="lineForm">
+                                    <label htmlFor="modelo">Modelo</label>
+                                    <input type="text" name="modelo" id="modelo" value={modelo} onChange={(e) => setModelo(e.target.value)} ></input>
+                                </li>
+                                <li className="lineForm">
+                                    <label htmlFor="cor">Cor</label>
+                                    <input type="text" name="cor" id="cor" value={cor} onChange={(e) => setCor(e.target.value)} ></input>
                                 </li>
                                 <li className="lineForm">
                                     <label htmlFor="preco">Preço</label>
@@ -211,15 +323,14 @@ function ProductAdmScreen(props) {
                                     <textarea name="descricao" rows="8" value={descricao} onChange={(e) => setDescricao(e.target.value)}></textarea>
                                 </li>
                                 <li className="lineForm">
-                                    <label htmlFor="categorias">Categoria</label>
+                                    <label htmlFor="select-multiple-category">Categoria</label>
                                     <div className="contSelect">
-
                                         <Select
                                             native
                                             multiple
                                             value={optionsCategorySelected}
                                             inputProps={{
-                                                id: 'select-multiple-native',
+                                                id: 'select-multiple-category',
                                             }}
                                             onChange={handleMultiple}
                                         >
@@ -233,7 +344,7 @@ function ProductAdmScreen(props) {
                                 </li>
                                 <li className="lineForm ">
                                     <label htmlFor="imagens">Imagens</label>
-                                    <input type="file" value={inputFile} multiple="multiple" onChange={(e) => onChangeImg(e)} />
+                                    <input type="file" value={inputFile} multiple="multiple" accept="image/x-png,image/gif,image/jpeg"  onChange={(e) => onChangeImg(e)} />
                                 </li>
                                 {errorImg && <li className="lineForm error">{errorImg}</li>}
                                 {imagesUploaded.length > 0 && alertThumb && <li className="lineForm error">{alertThumb}</li>}
@@ -241,7 +352,7 @@ function ProductAdmScreen(props) {
                                     {imagesUploaded.map((img) =>
                                         <div key={img.fileName} className={"tbUploaded " + (img.isThumb && 'thumb')} onClick={(e) => toggleThumb(img)} >
                                             <div className="btX" onClick={(e) => removeImg(img)}>x</div>
-                                            <img src={"/images/" + img.fileName} type={img.fileName} />
+                                            <img src={"/images/" + img.fileName} type={img.fileName} alt={img.fileName} />
                                             <input type="text" readOnly name='imagesGaleria[]' value={img.fileName} />
                                         </div>
                                     )}
@@ -254,30 +365,42 @@ function ProductAdmScreen(props) {
                     </div>
                 }
                 {!modalVisible &&
-                    <ul className="itensAdm">
-                        {product.map((prod, i) =>
-                            <li key={prod._id} className="product" >
-                                <div className=" s15">
-                                    {prod.codigo}
-                                </div>
-                                <div className="tit s50">
-                                    {prod.titulo}
-                                </div>
-                                <div className="bts">
-                                    <button className="btAdmin2" onClick={() => openModal(prod)}>
-                                        Editar
+                    <div>
+                        <ul className="itensAdm">
+                            {postsPagination.map((prod, i) =>
+                                <li key={prod._id} className="product" >
+                                    <div className="s10">
+                                        {prod.codigo}
+                                    </div>
+                                    <div className="tit">
+                                        {prod.titulo}
+                                    </div>
+                                   
+                                    <div className="bts">
+                                        <button className="btAdmin2" onClick={() => openModal(prod)}>
+                                            Editar
                                     </button>{' '}
-                                    <button className="btAdmin2" onClick={() => deleteHandler(prod._id)}>Excluir</button>
-                                </div>
-                            </li>
-                        )}
-                        {product.length == 0 &&
-                            <li>
-                                <span className="s10"></span>
-                                <span >Nenhum produto cadastrado</span>
-                            </li>
+                                        <button className="btAdmin2" onClick={() => deleteHandler(prod._id)}>Excluir</button>
+                                    </div>
+                                </li>
+                            )}
+                            {productFilter.length === 0 &&
+                                <li>
+                                    <span className="s10"></span>
+                                    <span >Nenhum produto encontrado</span>
+                                </li>
+                            }
+                        </ul>
+                        {Math.ceil(productFilter.length / postPerPage) > 1 &&
+                            <div className="paginationAdm">
+                                <Pagination
+                                    count={Math.ceil(productFilter.length / postPerPage)}
+                                    page={currentPage}
+                                    onChange={evtPaginate}
+                                />
+                            </div>
                         }
-                    </ul>
+                    </div>
                 }
             </div>
 

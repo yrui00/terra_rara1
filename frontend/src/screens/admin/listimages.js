@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import MenuAdmin from './menuAdmin';
+import Pagination from '@material-ui/lab/Pagination';
+import { listProduct } from '../../actions/productActions';
 
 
 
@@ -40,8 +42,8 @@ function ListImages(props) {
     }
 
     const copyText = (obj) => {
-        $(obj).parent().find('input')[0].select();
-        $(obj).parent().find('input')[0].setSelectionRange(0, 99999);
+        $(obj).parent().parent().find('input')[0].select();
+        $(obj).parent().parent().find('input')[0].setSelectionRange(0, 99999);
         document.execCommand("copy");
     }
 
@@ -71,25 +73,52 @@ function ListImages(props) {
             $('.topSearch .txtResults span').html(str);
         } else {
             $('.contentImgs .imagens').show();
+            $('.topSearch .numResults span').html('');
+            $('.topSearch .txtResults span').html('');
         }
     }
+    /* 
+        const [arImages, setImage] = useState([]);
+        useEffect(() => {
+            const fetchData = async () => {
+                const { data } = await axios.get("/api/jsonimgs");
+                setImage(data.images);
+            }
+            fetchData();
+        }, []) */
 
+
+    const productList = useSelector((state) => state.productList);
+    const { product, success } = productList;
     const [arImages, setImage] = useState([]);
-    useEffect(() => {
-        const fetchData = async () => {
-            const { data } = await axios.get("/api/jsonimgs");
-            setImage(data.images);
-        }
-        fetchData();
-    }, [])
 
-    /*function importAll(r) {
-        return r.keys().map(r);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(listProduct());
+    }, []);
+    useEffect(() => {
+        let ar = [];
+        product.map((p) => {
+            p.imagens.map((i) => {
+                i.titulo = p.titulo;
+                ar.push(i);
+            })
+        })
+        setImage(ar);
+    }, [success]);
+    
+    ///// paginaçao
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postPerPage] = useState(20);
+
+    const indexOfLastPost = currentPage * postPerPage;
+    const indexOfFirstPost = indexOfLastPost - postPerPage;
+    const postsPagination = arImages.slice(indexOfFirstPost, indexOfLastPost);
+
+    const evtPaginate = (obj, num) => {
+        setCurrentPage(num);
     }
-    const images = importAll(require.context('../images_upload', false, /\.(png|jpe?g|svg)$/));
-    images.map((img) =>{
-        console.log(img.split('/')[3]);
-    });*/
 
 
 
@@ -116,16 +145,16 @@ function ListImages(props) {
                     <div className="contentImgs">
 
                         <ul className="itensAdm">
-                            {arImages.map((img) =>
+                            {postsPagination.map((img) =>
 
-                                <li key={img.url} className="imagens"  >
+                                <li key={img.fileName} className="imagens"  >
                                     <div className="imgId">
                                         <div className="numId">{frmNum(ind++)}</div>
-                                        <div className="contImg"><img key={img.url} src={"/tb_images/" + img.url + "?width=50&height=50"} alt="" /></div>
+                                        <div className="contImg"><img key={img.fileName} src={"/tb_images/" + img.fileName + "?width=50&height=50"} alt="" /></div>
                                     </div>
                                     <div className="names" >
-                                        <span>{img.url.split(/\.jpe?g|\.png/)[0]}</span>
-                                        <input type="text" value={"https://www.lojaterrasraras.com.br/images/" + img.url} readOnly="readOnly" />
+                                        <span>{img.titulo}</span>
+                                        <input type="text" value={"https://www.lojaterrasraras.com.br/images/" + img.fileName} readOnly="readOnly" />
                                     </div>
                                     <div className="bts">
                                         <div className="btCopy" onClick={(e) => copyText(e.target)} ></div>
@@ -135,6 +164,15 @@ function ListImages(props) {
                                 </li>
                             )}
                         </ul>
+                        {Math.ceil(arImages.length / postPerPage) > 1 &&
+                            <div className="paginationAdm">
+                                <Pagination
+                                    count={Math.ceil(arImages.length / postPerPage)}
+                                    page={currentPage}
+                                    onChange={evtPaginate}
+                                />
+                            </div>
+                        }
 
                     </div>
 

@@ -1,30 +1,4 @@
-/*
-const fs = require('fs');
-const sharp = require('sharp');
 
-const resize = (path, width, height) => {
-    
-    const readStream = fs.createReadStream(path);
-    let transform = sharp();
-
-    if (width || height) {
-        width = !width ? height : width;
-        height = !height ? width : height;
-        transform = transform.resize(width, height);
-    }
-
-    
-    let img = readStream.pipe(transform);
-    console.log(img);
-    return img;
-  
-}
-
-
-
-module.exports = resize;
-
-*/
 
 
 'use strict';
